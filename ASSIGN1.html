@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pink and Black Checkerboard</title>
+  <style>
+    .board {
+      display: grid;
+      grid-template-columns: repeat(8, 50px);
+      grid-template-rows: repeat(8, 50px);
+      border: 5px solid black;
+      margin: 50px auto;
+      width: 400px;
+    }
+
+    .square {
+      width: 50px;
+      height: 50px;
+    }
+
+    .pink {
+      background-color: pink;
+    }
+
+    .black {
+      background-color: black;
+    }
+  </style>
+</head>
+<body style="background-color: white; text-align: center;">
+
+  <div class="board">
+    <!-- Generate the 8x8 board -->
+    <!-- Alternating pink and black squares -->
+    <script>
+      const board = document.querySelector('.board');
+      for (let row = 0; row < 8; row++) {
+        for (let col = 0; col < 8; col++) {
+          const square = document.createElement('div');
+          square.classList.add('square');
+          if ((row + col) % 2 === 0) {
+            square.classList.add('pink');
+          } else {
+            square.classList.add('black');
+          }
+          board.appendChild(square);
+        }
+      }
+    </script>
+  </div>
+
+</body>
+</html>
